@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Sales Invoice";
+}
+
+ <div>
+     <div class="row"  data-bind="with:newCustomer">
+         <div class="col-4">
+            CustomerName:
+            <input name="CustomerName" type="text" class="form-control" data-bind="value:customerName" />
+         </div>  
+         <div class="col-4">
+            Address:
+            <input name="Address" type="text" class="form-control" data-bind="value:address" />
+         </div>
+         <div class="col-4">
+            PhoneNumber:
+            <input name="PhoneNumber" type="text" class="form-control" data-bind="value:phoneNumber" />
+         </div>
+         <div class="d-flex justify-content-end" >
+            <button class="btn btn-success mt-2 " data-bind="click:$parent.addCustomer" >Submit</button>
+         </div>
+     </div>
+     <hr />
+     <div>
+        <div class="row">
+              <div class="col-4">
+                Customer:
+                <Select name="Items" class="form-select">
+                    <option>sas</option>
+                </select>
+            </div>
+            <div class="col-4">
+                Items:
+                <Select name="Items" class="form-select" >
+                    <option>sas</option>
+
+                </select>
+            </div>
+            <div class="col-4">
+                SalesInvoiceQuantity:
+                <input name="SalesInvoiceQuantity" type="text" class="form-control" />
+            </div>
+         
+        </div>
+        <div class="row">
+           <div class="col-4">
+                SalesInvoicePrice:
+                <input name="SalesInvoicePrice" type="text" class="form-control" />
+            </div>    
+            <div class="col-4">
+                SalesDiscount:
+                <input name="SalesDiscount" type="text" class="form-control" />
+            </div>
+            <div class="col-4">
+                GrandTotal:
+                <input name="GrandTotal" type="text" class="form-control" />
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-success mt-2 ">Submit</button>
+            </div>
+        </div>
+     </div>
+ </div>
+
+
+
+ <div>
+     <table class="table table-striped">
+         <thead>
+             <tr>
+                 <th>sdsd</th>
+                 <th>sdsd</th>
+                 <th>sdsd</th>
+                 <th>sdsd</th>
+                 <th>sdsd</th>
+                 <th>sdsd</th>
+                 <th>action</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td class="btn-group">
+                     <button class="btn btn-primary">Edit</button>
+                     <button class="btn btn-danger">delete</button>
+                 </td>
+             </tr> 
+             <tr>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td>sdsd</td>
+                 <td class="btn-group">
+                     <button class="btn btn-primary">Edit</button>
+                     <button class="btn btn-danger">delete</button>
+                 </td>
+             </tr>
+         </tbody>
+         <tfoot>
+        <tr>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td>Total</td>
+      <td> $ 4000</td>
+    </tr>
+  </tfoot>
+     </table>
+ </div>
+
+
+
+@section Scripts{
+<script src="~/js/knockoutjs.js"></script>
+<script src="~/js/application/customer.model.js"></script>
+<script src="~/js/application/customer.controller.js"></script>
+<script>
+    var obj = new CustomerController();
+    ko.applyBindings(obj);
+</script>
+}
