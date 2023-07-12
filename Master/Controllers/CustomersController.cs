@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Master.Controllers.Api
+namespace Master.Controllers
 {
     public class CustomersController : Controller
     {

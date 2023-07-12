@@ -84,16 +84,24 @@ namespace Master.Controllers.Api
         // POST: api/CustomersApi
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Customer>> PostCustomer([FromBody] CustomerDTO customer)
         {
           if (_context.Customers == null)
           {
               return Problem("Entity set 'AppDbContext.Customers'  is null.");
-          }
-            _context.Customers.Add(customer);
+            }
+            var Newcustomer = new Customer() { 
+            Id=0,
+            Address = customer.address,
+            CustomerName = customer.customerName,
+            PhoneNumber = customer.phoneNumber
+            };
+
+
+            _context.Customers.Add(Newcustomer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
+            return CreatedAtAction("GetCustomer", new { id = Newcustomer.Id }, customer);
         }
 
         // DELETE: api/CustomersApi/5
